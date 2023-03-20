@@ -91,7 +91,7 @@ public class AbstractPlaceholderManager<T> implements PlaceholderManager<T> {
 
     @Override
     public String onPlaceholderRequest(Object o, String placeholder) {
-        if (this.clazz.isAssignableFrom(o.getClass())) {
+        if (o != null && this.clazz.isAssignableFrom(o.getClass())) {
             return this.onPlaceholderRequested((T) o, placeholder);
         }
 
